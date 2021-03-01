@@ -167,14 +167,14 @@ The folder structure of your operator bundle should look like the example given 
 ```
 .
 ├── bundle
-    ├── manifests
- 	|   ├── nodered.com_noderedbackups.yaml
-    │   ├── nodered.com_noderedrestores.yaml
-    │   │── nodered.com_nodereds.yaml
-    │   └── node-red-operator.clusterserviceversion.yaml
-    ├── metadata
-	│   └── annotations.yaml
-	└── bundle.Dockerfile
+|   ├── manifests
+|   |   ├── nodered.com_noderedbackups.yaml
+|   │   ├── nodered.com_noderedrestores.yaml
+|   │   │── nodered.com_nodereds.yaml
+|   │   └── node-red-operator.clusterserviceversion.yaml
+|   ├── metadata
+|	    └── annotations.yaml
+├── bundle.Dockerfile
 ```
 
 Now , validate your operator bundle by executing the following command on the root directory of your project:
