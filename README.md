@@ -138,7 +138,7 @@ This is the name of your CSV file. In general, the naming convention includes th
 
 **`provider:`** It is the provider's name for the operator 
 
-**`RELATED_IMAGES_:`** Ensure your Operator is updated to support Air-Gap feature. [*Learn more*] (https://redhat-connect.gitbook.io/certified-operator-guide/appendix/offline-enabled-operators)
+**`RELATED_IMAGES_:`** Ensure your Operator is updated to support Air-Gap feature. [*Learn more*](https://redhat-connect.gitbook.io/certified-operator-guide/appendix/offline-enabled-operators)
 
 Check the CSV for [*node-red-operator*](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/1.0.0/manifests/node-red-operator.v1.0.0.clusterserviceversion.yaml) for more details.
 
@@ -294,29 +294,9 @@ Once you have updated your operator bundle, validate your bundle using the follo
 ```execute
 operator-sdk bundle validate ./2.0.0
 ```
-
 If it shows any error or warning, please ensure that you resolve all of them. 
 
-Once your operator bundle is validated,you can proceed to the next section to know how to push your images to IBM cloud registry. 
 
-Please see  [`node-red-operator`](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/tree/nodered-operator-v0.0.3/node-red-operator/bundle) example for reference.
 
-**e) Push images to IBM cloud registry**
-
-For getting your new version of the operator onboarded to IBM Cloud, it is very important to push all your images to IBM cloud registry.
-
-* **Push Application images :**
-
-If you have made any changes in your application images, all of the new images should be pushed to the Cloud registry. Make sure you push your images in the correct namespace contained in your registry.
-
-Refer [Quick-start-guide](https://cloud.ibm.com/registry/start)  for important steps to login to your IBM cloud registry and push the application images to your private registry.
-
-* **Push Operator images :** 
-
-If you have made any changes in your operator images, then your Operator image should be pushed to IBM Cloud Registry/ [quay.io](https://quay.io/)/ [docker.io](https://hub.docker.com/) and must be  available publicly .
-
-* **Push Operator Bundle images :**
-
-Your  Operator Bundle image should be available in a public registry. Please ensure that all these images are public after you push it to IBM Cloud Registry/ [quay.io](https://quay.io/)/ [docker.io](https://hub.docker.com/).
 
 
