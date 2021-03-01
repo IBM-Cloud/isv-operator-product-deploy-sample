@@ -2,166 +2,43 @@
 
 We will be covering the below topics in this guide.
 
-1. [Upload Application Image(s) to IBM image registry and namespace.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#1-upload-images-to-ibm-image-registry-and-namespace)
+1. [Upload Image(s) to IBM image registry and namespace.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#1-upload-images-to-ibm-image-registry-and-namespace)
 2. [Update the operator and bundle artifacts as per best practices guidelines.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#2-update-the-operator-and-bundle-artifacts-as-per-best-practices-guidelines)
 3. [Validate operator bundle.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#3validate-operator-bundle)
-4. [Push the Updated Operator Bundle and Operator image to Public Registry.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#4-push-the-updated-operator-bundle-and-operator-image-to-public-registry)
-5. [Upgrade to new operator version.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#5-upgrade-to-a-new-version)
+4. [Upgrade to new operator version.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#5-upgrade-to-a-new-version)
 
 ## Getting Started
 
 This document will help you learn about the process and best practices that you need to follow while onboarding an operator to IBM Cloud Catalog. The process will be explained with Node-red operator as an example.
 
-Before you start, check out the `Pre-requisites` section to know what things you need to keep ready for operator onboarding.
+Before you start, please check out the *Pre-requisites* section.
 
 ## Pre-requisites
 
 Prior to continuing, kindly ensure that you have the below accompanying stages ready.
 
 1. You have an active IBM Cloud account.
-2. The Operator should be created using [`latest supported`](https://cloud.ibm.com/docs/openshift?topic=openshift-operators) Operator-SDK version . This will let you perform smooth onboarding of operator to IBM Cloud Catalog
-3. Post the operator creation, the folder structure for your operator should look similar to the sample given below for `node-red-operator`. 
+2. Your Operator must be created using [*latest supported*](https://docs.openshift.com/container-platform/4.5/operators/operator_sdk/osdk-getting-started.html) Operator-SDK version . This will let you perform smooth onboarding of operator to IBM Cloud Catalog. 
 
-**NOTE**: At the time of writing this guide , latest supported Operator SDK version is 1.2.0.
+Refer the sample [*node-red-operator*](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample) for folder structure and other details.
 
-```
-node-red-operator/
-├── config
-│   ├── crd
-│   │   ├── bases
-│   │   │   ├── nodered.com_noderedbackups.yaml
-│   │   │   ├── nodered.com_noderedrestores.yaml
-│   │   │   └── nodered.com_nodereds.yaml
-│   │   └── kustomization.yaml
-│   ├── default
-│   │   ├── kustomization.yaml
-│   │   └── manager_auth_proxy_patch.yaml
-│   ├── manager
-│   │   ├── kustomization.yaml
-│   │   └── manager.yaml
-│   ├── prometheus
-│   │   ├── kustomization.yaml
-│   │   └── monitor.yaml
-│   ├── rbac
-│   │   ├── auth_proxy_client_clusterrole.yaml
-│   │   ├── auth_proxy_role_binding.yaml
-│   │   ├── auth_proxy_role.yaml
-│   │   ├── auth_proxy_service.yaml
-│   │   ├── kustomization.yaml
-│   │   ├── leader_election_role_binding.yaml
-│   │   ├── leader_election_role.yaml
-│   │   ├── noderedbackup_editor_role.yaml
-│   │   ├── noderedbackup_viewer_role.yaml
-│   │   ├── nodered_editor_role.yaml
-│   │   ├── noderedrestore_editor_role.yaml
-│   │   ├── noderedrestore_viewer_role.yaml
-│   │   ├── nodered_viewer_role.yaml
-│   │   ├── role_binding.yaml
-│   │   ├── role.yaml
-│   ├── samples
-│   │   ├── kustomization.yaml
-│   │   ├── nodered_v1alpha1_noderedbackup.yaml
-│   │   ├── nodered_v1alpha1_noderedrestore.yaml
-│   │   └── nodered_v1alpha1_nodered.yaml
-│   ├── scorecard
-│   │   ├── bases
-│   │   │   └── config.yaml
-│   │   ├── kustomization.yaml
-│   │   └── patches
-│   │       ├── basic.config.yaml
-│   │       └── olm.config.yaml
-│   └── testing
-│       ├── debug_logs_patch.yaml
-│       ├── kustomization.yaml
-│       ├── manager_image.yaml
-│       └── pull_policy
-│           ├── Always.yaml
-│           ├── IfNotPresent.yaml
-│           └── Never.yaml
-├── Dockerfile
-├── Makefile
-├── molecule
-│   ├── default
-│   │   ├── converge.yml
-│   │   ├── create.yml
-│   │   ├── destroy.yml
-│   │   ├── kustomize.yml
-│   │   ├── molecule.yml
-│   │   ├── prepare.yml
-│   │   ├── tasks
-│   │   │   ├── noderedbackup_test.yml
-│   │   │   ├── noderedrestore_test.yml
-│   │   │   └── nodered_test.yml
-│   │   └── verify.yml
-│   └── kind
-│       ├── converge.yml
-│       ├── create.yml
-│       ├── destroy.yml
-│       └── molecule.yml
-├── playbooks
-├── PROJECT
-├── requirements.yml
-├── roles
-│   ├── nodered
-│   │   ├── defaults
-│   │   │   └── main.yml
-│   │   ├── files
-│   │   ├── handlers
-│   │   │   └── main.yml
-│   │   ├── meta
-│   │   │   └── main.yml
-│   │   ├── README.md
-│   │   ├── tasks
-│   │   │   └── main.yml
-│   │   ├── templates
-│   │   └── vars
-│   │       └── main.yml
-│   ├── nodered-backup
-│   │   ├── defaults
-│   │   │   └── main.yml
-│   │   ├── files
-│   │   ├── handlers
-│   │   │   └── main.yml
-│   │   ├── meta
-│   │   │   └── main.yml
-│   │   ├── README.md
-│   │   ├── tasks
-│   │   │   └── main.yml
-│   │   ├── templates
-│   │   └── vars
-│   │       └── main.yml
-│   └── nodered-restore
-│       ├── defaults
-│       │   └── main.yml
-│       ├── files
-│       ├── handlers
-│       │   └── main.yml
-│       ├── meta
-│       │   └── main.yml
-│       ├── README.md
-│       ├── tasks
-│       │   └── main.yml
-│       ├── templates
-│       └── vars
-│           └── main.yml
-└── watches.yaml
-```
-See the [`node-red-operator`](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample)directory for more details.
-
-Now that you have your operator ready, you can proceed to the following sections to get information on the best practices for onboarding your operator.
-
+If the above  you can proceed to the following sections to get information on the best practices for onboarding your operator.
 
 
 ## 1. Upload Image(s) to IBM image registry and namespace ##
 
-To onboard your operator in ibmcloud catalog, your Application images , Operator Image and Operator Bundle Image have to be uploaded to the ibmcloud container registry.
-
-Follow the [Quick start](https://cloud.ibm.com/registry/start) guide to create IBM Cloud Registry and Namespace and push images to the registry.
+To onboard your operator in ibmcloud catalog, your Application image(s) and Operator Image have to be uploaded to the ibmcloud container registry.
 
 
-## 2. Update the operator and bundle artifacts as per best practices guidelines ##
+## 2. Update Images for Security and Vulnerabilities issues:
 
-Before you begin with the best practices, make sure that you have generated your operator bundle using latest operator sdk.
+Its required that you regularly build and push images to IBM Cloud Registry to ensure that the Images are free from all the Vulnerabilities and security issues. 
+You can view the Security Status of the uploaded Images on the IBM Cloud Registry. Vulnerability Advisor inspects your images to detect common deficiencies in certain security settings. [*Learn more*](https://cloud.ibm.com/docs/Registry?topic=va-va_index#app_configurations).
+
+
+## 3. Update the operator and bundle artifacts as per best practices guidelines ##
+
+Before you begin with the best practices, make sure that you have generated your operator bundle using [*latest supported*](https://docs.openshift.com/container-platform/4.5/operators/operator_sdk/osdk-getting-started.html) operator sdk.
 
 The folder structure of your operator bundle should look like the example given below for node-red-operator.
 
@@ -178,19 +55,19 @@ The folder structure of your operator bundle should look like the example given 
 ├── bundle.Dockerfile
 ```
 
-Now , validate your operator bundle by executing the following command on the root directory of your project:
+Also , validate your operator bundle by executing the following command on the root directory of your project:
 
 ```execute
 operator-sdk bundle validate ./bundle
 ```
 
-Once you have validated your operator bundle, you're good to start with updating the operator bundle artifacts as follows.
+Once you have validated your operator bundle, you're good to start with the Operator Bundle Artifact Check process.
 
-**a) CRD**
+**a) Check CRD version**
 
-By default the operator-sdk 1.2.0 and above versions creates the latest version of CustomResourceDefinition(CRD) `v1`. The older versions of OpenShift only support v1beta1. So if your operator is going to be listed on OpenShift 4.5 and earlier, you'll need to convert to the older format.
+By default the operator-sdk creates the latest version of CustomResourceDefinition(CRD) `v1`. The older versions of OpenShift (4.5 and earlier) only support `v1beta1`. For backward support its recommended to change the version of CRD to `v1beta1`. 
 
-The structure of your operator’s CRD should look like below.
+Example:
 
 ```yaml
 apiVersion: apiextensions.k8s.io/v1beta1
@@ -218,9 +95,9 @@ spec:
     storage: true
 ```
 
-There are a few important fields in your bundle CSV file that don't get generated by default. So, it is recommended that you make the required changes to your CSV file manually.
+**b) Check CSV fields**
 
-**b) CSV**
+There are a few important fields in your bundle CSV file that don't get generated by default. So, it is recommended that you make the required changes to your CSV file manually.
 
 You need to add personalized data to the following required fields of the CSV.
 
@@ -263,9 +140,13 @@ This is the name of your CSV file. In general, the naming convention includes th
 
 **`provider:`** It is the provider's name for the operator 
 
-Check the CSV for [`node-red-operator`](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/nodered-operator-v0.0.3/node-red-operator/bundle/manifests/node-red-operator.v2.1.0.clusterserviceversion.yaml) for more details.
+**`RELATED_IMAGES_:`** Ensure your Operator is updated to support Air-Gap feature. [*Learn more*] (https://redhat-connect.gitbook.io/certified-operator-guide/appendix/offline-enabled-operators)
 
-**c) bundle.Dockerfile**
+Check the CSV for [*node-red-operator*](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/1.0.0/manifests/node-red-operator.v1.0.0.clusterserviceversion.yaml) for more details.
+
+**NOTE**: Ensure that the CSV references to Application Image(s) and Operator Image from IBM Cloud Registry.
+
+**c) Check bundle.Dockerfile**
 
 The `bundle.Dockerfile` in the root directory of your operator project is the Dockerfile for your metadata bundle image. 
 
@@ -281,7 +162,7 @@ As a best practice you may want to add the default channel and package name by a
 
 `LABEL operators.operatorframework.io.bundle.package.v1=node-red-operator-certified`
 
-For more details, refer the example   [`node-red-operator`](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/nodered-operator-v0.0.3/node-red-operator/bundle/bundle-v2.1.0.Dockerfile) 
+For more details, refer the example   [*node-red-operator*](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/bundle-v1.0.0.Dockerfile) 
 
 **d) annotations.yaml**
 
@@ -291,31 +172,33 @@ Make sure you add the package name properly.
 
 `operators.operatorframework.io.bundle.package.v1: node-red-operator-certified`
 
-See [`node-red-operator`](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/nodered-operator-v0.0.3/node-red-operator/bundle/metadata/annotations.yaml) for more details.
+See [*node-red-operator*](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/1.0.0/metadata/annotations.yaml) for more details.
 
 
-## 3.Validate operator bundle ##
+## 3.Push the Operator Bundle to a public GIT Repository ##
 
-Once you have covered all the best practices to consider for updating your operator and bundle artifacts, you need to validate your bundle once again using the following command. 
+If you have updated your Operator Bundle Artifacts as per above instructions , make sure you validate your bundle once again using the following command. 
 
 ```execute
 operator-sdk bundle validate ./bundle
 ```
 
-If it produces any error or warning please ensure that you resolve all of them. 
+If it produces any error or warning please ensure that you resolve all of them.
 
-After validating your operator bundle as per given guidelines, rebuild the bundle image.
+Upload your tested Bundle artifacts in the below format to a GIT Repository and ensure its public.
 
-
-## 4. Push the Updated Operator Bundle and Operator image to Public Registry
-
-**a) Push Operator image :** 
-
-Push your Operator Image to IBM Cloud Registry and ensure its Public.
-
-**b) Push Operator Bundle images :**
-
-Push your Operator BUndle Image to IBM Cloud Registry and ensure its Public.
+```
+.
+├── bundle
+|   ├── manifests
+|   |   ├── nodered.com_noderedbackups.yaml
+|   │   ├── nodered.com_noderedrestores.yaml
+|   │   │── nodered.com_nodereds.yaml
+|   │   └── node-red-operator.clusterserviceversion.yaml
+|   ├── metadata
+|	    └── annotations.yaml
+├── bundle.Dockerfile
+```
 
 ## 5. Upgrade to a new version ##
 
