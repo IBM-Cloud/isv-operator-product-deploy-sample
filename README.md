@@ -19,8 +19,10 @@ Before you start, check out the `Pre-requisites` section to know what things you
 Prior to continuing, kindly ensure that you have the below accompanying stages ready.
 
 1. You have an active IBM Cloud account.
-2. The Operator should be created using Operator-SDK version 1.2.0 or above. This will let you perform smooth onboarding of operator to IBM Cloud Catalog
+2. The Operator should be created using [`latest supported`](https://cloud.ibm.com/docs/openshift?topic=openshift-operators) Operator-SDK version . This will let you perform smooth onboarding of operator to IBM Cloud Catalog
 3. Post the operator creation, the folder structure for your operator should look similar to the sample given below for `node-red-operator`. 
+
+**NOTE**: At the time of writing this guide , latest supported Operator SDK version is 1.2.0.
 
 ```
 node-red-operator/
