@@ -187,7 +187,7 @@ Once you have validated your operator bundle, you're good to start with updating
 
 **a) CRD**
 
-By default the operator-sdk 1.2.0 and above versions creates the latest version of CustomResourceDefinition(CRD) `v1`. The older versions of OpenShift only support v1beta1. So if your operator is going to be listed on OCP 4.5 and earlier, you'll need to convert to the older format.
+By default the operator-sdk 1.2.0 and above versions creates the latest version of CustomResourceDefinition(CRD) `v1`. The older versions of OpenShift only support v1beta1. So if your operator is going to be listed on OpenShift 4.5 and earlier, you'll need to convert to the older format.
 
 The structure of your operator’s CRD should look like below.
 
