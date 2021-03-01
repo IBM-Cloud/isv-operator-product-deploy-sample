@@ -4,7 +4,7 @@ We will be covering the below topics in this guide.
 
 1. [Upload Image(s) to IBM image registry and namespace](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample#1-upload-images-to-ibm-image-registry-and-namespace)
 2. [Update Images for Security and Vulnerabilities issues](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample#2-update-images-for-security-and-vulnerabilities-issues)
-3. [Update the operator and bundle artifacts as per best practices guidelines](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample#3-update-the-operator-and-bundle-artifacts-as-per-best-practices-guidelines
+3. [Update the operator and bundle artifacts as per best practices guidelines](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample#3-update-the-operator-and-bundle-artifacts-as-per-best-practices-guidelines)
 4. [Push the Operator Bundle to a public GIT Repository](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample#3push-the-operator-bundle-to-a-public-git-repository)
 5. [Upgrade to new operator version.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#5-upgrade-to-a-new-version)
 
