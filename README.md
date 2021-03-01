@@ -161,7 +161,7 @@ Follow the [Quick start](https://cloud.ibm.com/registry/start) guide to create I
 
 ## 2. Update the operator and bundle artifacts as per best practices guidelines ##
 
-Before you begin with the best practices, make sure that you have generated your operator bundle using operator sdk 1.2.0 or above.
+Before you begin with the best practices, make sure that you have generated your operator bundle using latest operator sdk.
 
 The folder structure of your operator bundle should look like the example given below for node-red-operator.
 
