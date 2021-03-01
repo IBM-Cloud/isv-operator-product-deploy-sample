@@ -413,7 +413,7 @@ To ensure that the upgraded contents are there inside  `clusterserviceversion.ya
   replaces: node-red-operator.v1.0.0
   ```
 
-**NOTE: **Along with the above metadata updates to the CSV file, you will also need to update the new version of Operator Image and Application Image(s) based on the updates associated with the new release.
+**NOTE:** Along with the above metadata updates to the CSV file, you will also need to update the new version of Operator Image and Application Image(s) based on the updates associated with the new release.
 
 
 
