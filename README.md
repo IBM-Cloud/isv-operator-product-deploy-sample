@@ -144,7 +144,7 @@ node-red-operator/
 │           └── main.yml
 └── watches.yaml
 ```
-See the [`node-red-operator`](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/tree/nodered-operator-v0.0.3/node-red-operator)directory for more details.
+See the [`node-red-operator`](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample)directory for more details.
 
 Now that you have your operator ready, you can proceed to the following sections to get information on the best practices for onboarding your operator.
 
