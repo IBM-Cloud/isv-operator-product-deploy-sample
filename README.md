@@ -2,10 +2,10 @@
 
 We will be covering the below topics in this guide.
 
-1. [Upload Image(s) to IBM image registry and namespace.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#1-create-an-ibm-image-registry-and-namespace)
+1. [Upload Application Image(s) to IBM image registry and namespace.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#1-create-an-ibm-image-registry-and-namespace)
 2. [Update the operator and bundle artifacts as per best practices guidelines.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#2-update-the-operator-and-bundle-artifacts-as-per-best-practices-guidelines)
 3. [Validate operator bundle.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#3validate-operator-bundle)
-4. [Push the images to IBM cloud registry.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#4-push-images-to-ibm-cloud-registry)
+4. [Push the Updated Operator Bundle and Operator image to Public Registry.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#4-push-images-to-ibm-cloud-registry)
 5. [Upgrade to new operator version.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#5-upgrade-to-a-new-version)
 
 ## Getting Started
@@ -158,10 +158,6 @@ To onboard your operator in ibmcloud catalog, your Application images , Operator
 
 Follow the [Quick start](https://cloud.ibm.com/registry/start) guide to create IBM Cloud Registry and Namespace and push images to the registry.
 
-**Note**: 
-* Application Images should be uploaded to Private Registry 
-* Operator Image and Operator Bundle Image should be available in a Public Registry as this is required for a consumer to install operator.
-
 
 ## 2. Update the operator and bundle artifacts as per best practices guidelines ##
 
@@ -298,7 +294,6 @@ Make sure you add the package name properly.
 See [`node-red-operator`](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/nodered-operator-v0.0.3/node-red-operator/bundle/metadata/annotations.yaml) for more details.
 
 
-
 ## 3.Validate operator bundle ##
 
 Once you have covered all the best practices to consider for updating your operator and bundle artifacts, you need to validate your bundle once again using the following command. 
@@ -309,29 +304,18 @@ operator-sdk bundle validate ./bundle
 
 If it produces any error or warning please ensure that you resolve all of them. 
 
-After validating your operator bundle as above you can proceed to the next section that talks about pushing  your images to IBM cloud registry. 
+After validating your operator bundle as per given guidelines, rebuild the bundle image.
 
 
+## 4. Push the Updated Operator Bundle and Operator image to Public Registry
 
-## 4. Push images to IBM cloud registry
+**a) Push Operator image :** 
 
-For getting your operator onboarded to IBM Cloud, it is very important to push all your images to the IBM cloud registry.
+Push your Operator Image to IBM Cloud Registry and ensure its Public.
 
-**a) Push Application images :**
+**b) Push Operator Bundle images :**
 
-If your operator uses multiple application images, all of them should be pushed to the Cloud registry. Make sure you push your images with the correct namespace in your registry.
-
-Refer [Quickstart](https://cloud.ibm.com/registry/start) for step-by-step guide to login to your IBM cloud registry and push the application images to your private registry.
-
-**b) Push Operator images :** 
-
-Your Operator image should be available in a public registry .
-
-**c) Push Operator Bundle images :**
-
-Your  Operator Bundle image should be available in a public registry. Please ensure that all these images are public.
-
-
+Push your Operator BUndle Image to IBM Cloud Registry and ensure its Public.
 
 ## 5. Upgrade to a new version ##
 
