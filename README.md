@@ -154,8 +154,11 @@ Now that you have your operator ready, you can proceed to the following sections
 
 To onboard your operator in ibmcloud catalog, your Application images , Operator Image and Operator Bundle Image have to be uploaded to the ibmcloud container registry.
 
-Please refer [Quick start](https://cloud.ibm.com/registry/start) guide for the important steps on how to get started.
+Follow the [Quick start](https://cloud.ibm.com/registry/start) guide to create IBM Cloud Registry and Namespace and push images to the registry.
 
+**Note**: 
+* Application Images should be uploaded to Private Registry 
+* Operator Image and Operator Bundle Image should be available in a Public Registry as this is required for a consumer to install operator.
 
 
 ## 2. Update the operator and bundle artifacts as per best practices guidelines ##
