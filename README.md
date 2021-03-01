@@ -2,10 +2,11 @@
 
 We will be covering the below topics in this guide.
 
-1. [Upload Image(s) to IBM image registry and namespace.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#1-upload-images-to-ibm-image-registry-and-namespace)
-2. [Update the operator and bundle artifacts as per best practices guidelines.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#2-update-the-operator-and-bundle-artifacts-as-per-best-practices-guidelines)
-3. [Validate operator bundle.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#3validate-operator-bundle)
-4. [Upgrade to new operator version.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#5-upgrade-to-a-new-version)
+1. [Upload Image(s) to IBM image registry and namespace](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample#1-upload-images-to-ibm-image-registry-and-namespace)
+2. [Update Images for Security and Vulnerabilities issues](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample#2-update-images-for-security-and-vulnerabilities-issues)
+3. [Update the operator and bundle artifacts as per best practices guidelines](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample#3-update-the-operator-and-bundle-artifacts-as-per-best-practices-guidelines
+4. [Push the Operator Bundle to a public GIT Repository](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample#3push-the-operator-bundle-to-a-public-git-repository)
+5. [Upgrade to new operator version.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#5-upgrade-to-a-new-version)
 
 ## Getting Started
 
@@ -25,18 +26,18 @@ Refer the sample [*node-red-operator*](https://github.com/IBM-Cloud/isv-operator
 If the above  you can proceed to the following sections to get information on the best practices for onboarding your operator.
 
 
-## 1. Upload Image(s) to IBM image registry and namespace ##
+## 1. Upload Image(s) to IBM image registry and namespace 
 
 To onboard your operator in ibmcloud catalog, your Application image(s) and Operator Image have to be uploaded to the ibmcloud container registry.
 
 
-## 2. Update Images for Security and Vulnerabilities issues:
+## 2. Update Images for Security and Vulnerabilities issues
 
 Its required that you regularly build and push images to IBM Cloud Registry to ensure that the Images are free from all the Vulnerabilities and security issues. 
 You can view the Security Status of the uploaded Images on the IBM Cloud Registry. Vulnerability Advisor inspects your images to detect common deficiencies in certain security settings. [*Learn more*](https://cloud.ibm.com/docs/Registry?topic=va-va_index#app_configurations).
 
 
-## 3. Update the operator and bundle artifacts as per best practices guidelines ##
+## 3. Update the operator and bundle artifacts as per best practices guidelines 
 
 Before you begin with the best practices, make sure that you have generated your operator bundle using [*latest supported*](https://docs.openshift.com/container-platform/4.5/operators/operator_sdk/osdk-getting-started.html) operator sdk.
 
@@ -164,7 +165,7 @@ As a best practice you may want to add the default channel and package name by a
 
 For more details, refer the example   [*node-red-operator*](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/bundle-v1.0.0.Dockerfile) 
 
-**d) annotations.yaml**
+**d) Check annotations.yaml**
 
 For a smooth onboarding you need to have all the labels present in your `bundle.Dockerfile` contained in your `annotations.yaml`.
 
@@ -175,7 +176,7 @@ Make sure you add the package name properly.
 See [*node-red-operator*](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/1.0.0/metadata/annotations.yaml) for more details.
 
 
-## 3.Push the Operator Bundle to a public GIT Repository ##
+## 4.Push the Operator Bundle to a public GIT Repository ##
 
 If you have updated your Operator Bundle Artifacts as per above instructions , make sure you validate your bundle once again using the following command. 
 
