@@ -2,7 +2,7 @@
 
 We will be covering the below topics in this guide.
 
-1. [Create an IBM image registry and namespace.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#1-create-an-ibm-image-registry-and-namespace)
+1. [Upload Image(s) to IBM image registry and namespace.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#1-create-an-ibm-image-registry-and-namespace)
 2. [Update the operator and bundle artifacts as per best practices guidelines.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#2-update-the-operator-and-bundle-artifacts-as-per-best-practices-guidelines)
 3. [Validate operator bundle.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#3validate-operator-bundle)
 4. [Push the images to IBM cloud registry.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#4-push-images-to-ibm-cloud-registry)
@@ -150,9 +150,9 @@ Now that you have your operator ready, you can proceed to the following sections
 
 
 
-## 1. Create an IBM image registry and namespace ##
+## 1. Upload Image(s) to IBM image registry and namespace ##
 
-For uninterrupted onboarding of your operator  to IBM Cloud Catalog, you need to set up your private IBM registry namespace.
+To onboard your operator in ibmcloud catalog, your Application images , Operator Image and Operator Bundle Image have to be uploaded to the ibmcloud container registry.
 
 Please refer [Quick start](https://cloud.ibm.com/registry/start) guide for the important steps on how to get started.
 
