@@ -99,47 +99,35 @@ There are a few important fields in your bundle CSV file that don't get generate
 
 You need to add personalized data to the following required fields of the CSV.
 
-|**```namespace:```** | If you want your operator to be installed in any specific namespace, modify this field to the required namespace. Else continue with the existing details.|
-
-**```name:```**
-This is the name of your CSV file. In general, the naming convention includes the name of the operator followed by the semantic version number, separated by a period (e.g. node-red-operator.v2.1.0). You need to modify the name according to your requirement.
-
-**```annotations:```** 
-
-| Sub-fields    | Description                                                  |
-| :------------ | ------------------------------------------------------------ |
-| alm-examples  | This is an array containing CRD templates. The users of your Operator should be aware of mandatory and optional choices. You can upload the CRD templates containing a minimum set of configuration as an annotation in JSON format. |
-| capabilities: | Based on the operator maturity model, the capability can be classified as Basic Install or Seamless Upgrades or Full Lifecycle or Deep Insights or Auto Pilot |
-| categories    | A category is a comma separated string of applicable category names. |
-| description   | To give a short description of the operator                  |
-| createdAt     | This indicates a rough (to the day) timestamp of when the operator image was created |
-| support       | This contains the  name of the supporting vendor (eg: ExampleCo) |
-| certified     | (deprecated) this string has no effect, but can be set to "true" or "false" |
-| repository    | This is an optional URL of the operator's source code repository. If you don't want to specify , set it to NA. |
-
-**`version:`** The value you enter in this field will depict the current version of the operator.
-
-**`replaces:`** This interprets as “the previous version to be replaced with a particular version". This field is very important for version upgrades to take place.
-
-**`customresourcedefinitions:`** Make sure you mention all the CRDs for your operator in this field.
-
-**`icon:`** It is recommended to add the `base64data` of your icon.
-
-**`clusterPermissions:`** Make sure you add all the required cluster permissions for your operator.
-
-**`serviceAccountName:`** It is very important to mention the ServiceAccountName in this field for your operator to work properly.
-
-**`keywords:`** It contains comma-separated list of keywords for your operator 
-
-**`description:`** This contains the description for the operator, which is very important for understanding the operator better.
-
-**`maintainers:`** It is the comma-separated list of maintainers and their emails (e.g. 'name1:email1, name2:email2') 
-
-**`provider:`** It is the provider's name for the operator 
-
-**`RELATED_IMAGES_:`** Ensure your Operator is updated to support Air-Gap feature. [*Learn more*](https://redhat-connect.gitbook.io/certified-operator-guide/appendix/offline-enabled-operators)
-
 Check the CSV for [*node-red-operator*](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/1.0.0/manifests/node-red-operator.v1.0.0.clusterserviceversion.yaml) for more details.
+
+| field                              | sub-field                                                    | Description                                                  |
+| ---------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| metadata                           | name                                                         | This is the name of your CSV file. In general, the naming convention includes the name of the operator followed by the semantic version number, separated by a period (e.g. node-red-operator.v2.1.0). |
+| metadata                           | namespace                                                    | Namespace in which the operator will be installed. Should be set as ```placeholder``` |
+| annotations                        | alm-examples                                                 | This is an array containing CRD templates. The users of your Operator should be aware of mandatory and optional choices. You can upload the CRD templates containing a minimum set of configuration as an annotation in JSON format. |
+| annotations                        | capabilities:                                                | Based on the operator maturity model, the capability can be classified as Basic Install or Seamless Upgrades or Full Lifecycle or Deep Insights or Auto Pilot |
+| annotations                        | categories                                                   | A category is a comma separated string of applicable category names. |
+| annotations                        | description                                                  | To give a short description of the operator                  |
+| annotations                        | createdAt                                                    | This indicates a rough (to the day) timestamp of when the operator image was created |
+| annotations                        | support                                                      | This contains the  name of the supporting vendor (eg: ExampleCo) |
+| annotations                        | certified                                                    | (deprecated) this string has no effect, but can be set to "true" or "false" |
+| annotations                        | repository                                                   | This is an optional URL of the operator's source code repository. If you don't want to specify , set it to NA. |
+| spec                               | version                                                      | The value you enter in this field will depict the current version of the operator. |
+| spec                               | replaces                                                     | This interprets as “the previous version to be replaced with a particular version". This field is very important for version upgrades to take place. |
+| spec                               | customresourcedefinitions.owned                              | List all the CRDs for your operator in this section.         |
+| spec                               | icon                                                         | a ```base64data``` encoded icon                              |
+| spec                               | install                                                      | Operator Deployment definition used to deploy the operator pod. |
+| spec.install.spec.containers[].env | RELATED_IMAGE_ Environment variable in container definition of Operator Deployment | Ensure your Operator is updated to support Air-Gap feature. [*Learn more*](https://redhat-connect.gitbook.io/certified-operator-guide/appendix/offline-enabled-operators) |
+| spec                               | serviceAccountName                                           | The name of the service account to which the RBAC is assigned. Operator runs as this service account and gets the permissions assigned to this account. |
+| spec                               | clusterPermissions                                           | Define all the required cluster permissions for your operator's serviceAccount |
+| spec                               | Permissions                                                  | Define all the required namespace level permissions for your operator's serviceAccount |
+| spec                               | description                                                  | A Description of the Operator, its feature , how to use it, pre-requisites etc. A user of the operator will see this description and this is required. |
+| spec                               | maintainers                                                  | It is the comma-separated list of maintainers and their emails (e.g. 'name1:email1, name2:email2') |
+| spec                               | keywords                                                     | It contains comma-separated list of keywords for your operator |
+| spec                               | provider                                                     | It is the provider's name for the operator                   |
+
+
 
 **NOTE**: Ensure that the CSV references to Application Image(s) and Operator Image from IBM Cloud Registry.
 
