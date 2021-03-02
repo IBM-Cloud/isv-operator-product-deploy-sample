@@ -280,6 +280,6 @@ operator-sdk bundle validate ./2.0.0
 If it shows any error or warning, please ensure that you resolve all of them. 
 
 
-## 6. [Back to Onboarding Tutorial](https://test.cloud.ibm.com/docs/third-party?topic=third-party-operator-onboard-tutorial)
+## [Go Back to Onboarding Tutorial](https://test.cloud.ibm.com/docs/third-party?topic=third-party-operator-onboard-tutorial)
 
 
