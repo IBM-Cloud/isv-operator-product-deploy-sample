@@ -7,7 +7,7 @@
 
 ## Getting Started
 
-This repo contains a sample Node-Red Operator that helps you understand how to set up and prepare your Operator bundle directory structure for the Operator Onboarding program.
+This git repository contains a sample Node-Red Operator that helps you understand how to set up and prepare your Operator bundle directory structure for the Operator Onboarding program.
 
 You will learn the best practices to be followed for preparing your operator bundle artifacts which is required while onboarding an operator to IBM Cloud Catalog. 
 
