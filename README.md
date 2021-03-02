@@ -99,8 +99,7 @@ There are a few important fields in your bundle CSV file that don't get generate
 
 You need to add personalized data to the following required fields of the CSV.
 
-**```namespace:```** 
-If you want your operator to be installed in any specific namespace, modify this field to the required namespace. Else continue with the existing details.
+|**```namespace:```** | If you want your operator to be installed in any specific namespace, modify this field to the required namespace. Else continue with the existing details.|
 
 **```name:```**
 This is the name of your CSV file. In general, the naming convention includes the name of the operator followed by the semantic version number, separated by a period (e.g. node-red-operator.v2.1.0). You need to modify the name according to your requirement.
