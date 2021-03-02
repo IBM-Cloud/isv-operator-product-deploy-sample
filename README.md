@@ -185,23 +185,17 @@ Upload your tested Bundle artifacts in the below format to a GIT Repository and 
 ├── bundle.Dockerfile
 ```
 
+When adding the Operator version to IBM Cloud Catalog, you would reference the CSV file from the GIT repository.
+
 ## 5. Upgrade to a new version ##
 
-Each Cluster Service Version **(CSV)** file represents a single version of the operator. Subsequent versions of the operator will have their own respective CSV files. 
+A New Version of an operator can be released in any of the following scenarios:
+a) Update the Product version used in the operator
+b) Update in Operator code 
 
-If you need to release a new version of the operator (say 2.0.0, while your present version is 1.0.0), then the most-followed way is to create a copy of the previous version with the appropriate changes so that you can reuse the old bundle.
+If you need to release a new version of the operator (say 2.0.0, while your present version is 1.0.0), follow the following steps:
 
-See the steps below to be followed.
-
-**a) Create a new operator image**
-
-In the scenarios where you have changed your operator definitions, or you want to change your application image to something new, it is recommended to re-build the operator image after you have made all the desired changes. Also, make sure that you have made your image 'public'.
-
-Refer this [Quick-start-guide](https://cloud.ibm.com/registry/start) for detailed instructions.
-
-
-
-**b) Copy the bundle and modify version**
+**a) Copy the bundle and modify version**
 
 Copy the folder contents of the previous version(example:1.0.0)  to a new folder called 2.0.0 (which will be the new release version).
 
@@ -246,7 +240,7 @@ Now you should have two folders representing two versions as shown below
 ├── bundle-2.0.0.Dockerfile
 ```
 
-**c) Make changes in the CSV file**
+**b) Make changes in the CSV file**
 
 It is the most important step for any version upgrade~~s~~.
 
@@ -270,11 +264,11 @@ To ensure that the upgraded contents are there inside  `clusterserviceversion.ya
   replaces: node-red-operator.v1.0.0
   ```
 
-**NOTE:** Along with the above metadata updates to the CSV file, you will also need to update the new version of Operator Image and Application Image(s) based on the updates associated with the new release.
+**NOTE:** Along with the above metadata updates to the CSV file, you will also need to update the new version of Operator Image and/or Application Image(s) based on the updates associated with the new release.
 
 
 
-**d) Validate the operator bundle**
+**c) Validate the operator bundle**
 
 Once you have updated your operator bundle, validate your bundle using the following command. 
 
