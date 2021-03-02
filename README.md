@@ -7,7 +7,9 @@
 
 ## Getting Started
 
-This document will help you learn about the process and best practices that you need to follow while onboarding an operator to IBM Cloud Catalog. The process will be explained with Node-red operator as an example.
+This repo contains a sample Node-Red Operator that helps you understand how to set up and prepare your Operator bundle directory structure for the Operator Onboarding program.
+
+You will learn the best practices to be followed for preparing your operator bundle artifacts which is required while onboarding an operator to IBM Cloud Catalog. 
 
 Before you start, please check out the *Pre-requisites* section.
 
@@ -278,6 +280,6 @@ operator-sdk bundle validate ./2.0.0
 If it shows any error or warning, please ensure that you resolve all of them. 
 
 
-
+## 6. [Back to Onboarding Tutorial](https://test.cloud.ibm.com/docs/third-party?topic=third-party-operator-onboard-tutorial)
 
 
