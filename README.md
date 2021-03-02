@@ -29,6 +29,8 @@ If the above  you can proceed to the following sections to get information on th
 
 To onboard your operator in ibmcloud catalog, your Application image(s) and Operator Image have to be uploaded to the ibmcloud container registry.
 
+Please follow the steps in this [Quick start](https://cloud.ibm.com/registry/start) guide to get started.
+
 
 ## 2. Update Images for Security and Vulnerabilities issues
 
