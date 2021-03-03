@@ -1,9 +1,10 @@
 ## Contents:
 1. [Upload Image(s) to IBM image registry](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample#1-upload-images-to-ibm-image-registry)
-2. [Update Images for security and vulnerabilities issues](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample#2-update-images-for-security-and-vulnerabilities-issues)
-3. [Update the operator and bundle artifacts as per best practices guidelines](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample#3-update-the-operator-and-bundle-artifacts-as-per-best-practices-guidelines)
-4. [Push the Operator bundle to a public GIT Repository](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample#3push-the-operator-bundle-to-a-public-git-repository)
-5. [Upgrade to new operator version.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#5-upgrade-to-a-new-version)
+2. [Provide registry READ permission and create API Key]()
+3. [Update Images for security and vulnerabilities issues](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample#3-update-images-for-security-and-vulnerabilities-issues)
+4. [Update the operator and bundle artifacts as per best practices guidelines](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample#4-update-the-operator-and-bundle-artifacts-as-per-best-practices-guidelines)
+5. [Push the Operator bundle to a public GIT Repository](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample#5push-the-operator-bundle-to-a-public-git-repository)
+6. [Upgrade to new operator version.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#6-upgrade-to-a-new-version)
 
 ## Getting Started
 
@@ -31,14 +32,20 @@ To onboard your operator onto **IBM Cloud Catalog**, your Application Image(s) a
 
 Please follow the steps in this [Quick start](https://cloud.ibm.com/registry/start) guide to get started.
 
+## 2. Provide registry READ permission and create API Key
 
-## 2. Update images for security and vulnerabilities issues
+For operator onboarding we will require a provider to set an **IAM serviceID** with Registry **READ** permission for a specific namespace, and create an API key for the same.
+
+Please follow the steps listed [here](https://cloud.ibm.com/docs/Registry?topic=Registry-iam).
+
+
+## 3. Update images for security and vulnerabilities issues
 
 It's required that you regularly build and push images to IBM Cloud Registry to ensure that the Images are free from all the vulnerabilities and security issues. 
 You can view the **Security Status** of the uploaded Images on the IBM Cloud Registry. Vulnerability Advisor inspects your images to detect common deficiencies in certain security settings. [*Learn more*](https://cloud.ibm.com/docs/Registry?topic=va-va_index#app_configurations).
 
 
-## 3. Update the operator and bundle artifacts as per best practices guidelines 
+## 4. Update the operator and bundle artifacts as per best practices guidelines 
 
 Before you begin with the best practices, make sure that you have generated your operator bundle using [*latest supported*](https://docs.openshift.com/container-platform/4.5/operators/operator_sdk/osdk-getting-started.html) operator sdk.
 
@@ -139,7 +146,7 @@ Make sure you add the package name properly.
 See [*node-red-operator*](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/1.0.0/metadata/annotations.yaml) example for more details.
 
 
-## 4.Push the Operator Bundle to a public GIT Repository ##
+## 5.Push the Operator Bundle to a public GIT Repository ##
 
 If you have updated your Operator Bundle Artifacts as per the above instructions , make sure you validate your bundle once again using the following command. 
 
@@ -166,7 +173,8 @@ Upload your tested Bundle artifacts in the below format to a GIT Repository and 
 
 When adding the Operator version to IBM Cloud Catalog, you would reference the CSV file from the GIT repository.
 
-## 5. Upgrade to a new version ##
+****
+## 6. Upgrade to a new version ##
 
 A new version of an operator can be released in any of the following scenarios:
 a) Update the Product version used in the operator
