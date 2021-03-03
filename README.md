@@ -3,9 +3,9 @@
 2. [Pre-requisites](#2-pre-requisites)
 3. [Upload images to IBM Cloud Container Registry](#3-upload-images-to-ibm-cloud-container-registry)
 4. [Provide registry READ permission and create API Key](#4-provide-registry-read-permission-and-create-api-key)
-5. [Update images for security and vulnerabilities issues](#5-update-images-for-security-and-vulnerabilities-issues)
+5. [Review the Vulnerability Advisor report for the images](#5-review-the-vulnerability-advisor-report-for-the-images)
 6. [Update the operator and bundle artifacts as per best practices guidelines](#6-update-the-operator-and-bundle-artifacts-as-per-best-practices-guidelines)
-7. [Push the operator bundle to a public GIT repository](#7-push-the-operator-bundle-to-a-public-git-repository)
+7. [Push the operator bundle to a GIT repository](#7-push-the-operator-bundle-to-a-git-repository)
 8. [Upgrade to new operator version](#8-upgrade-to-a-new-version)
 
 ****
@@ -43,7 +43,7 @@ For operator onboarding we will require a provider to set an **IAM serviceID** w
 Please follow the steps listed [here](https://cloud.ibm.com/docs/Registry?topic=Registry-iam).
 
 
-## 5. Update images for security and vulnerabilities issues
+## 5. Review the Vulnerability Advisor report for the images
 
 It's required that you regularly build and push images to IBM Cloud Registry to ensure that the Images are free from all the vulnerabilities and security issues. 
 You can view the **Security Status** of the uploaded Images on the IBM Cloud Registry. Vulnerability Advisor inspects your images to detect common deficiencies in certain security settings. [*Learn more*](https://cloud.ibm.com/docs/Registry?topic=va-va_index#app_configurations).
@@ -150,7 +150,7 @@ Make sure you add the package name properly.
 See [*node-red-operator*](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/1.0.0/metadata/annotations.yaml) example for more details.
 
 
-## 7. Push the operator bundle to a public GIT repository ##
+## 7. Push the operator bundle to a GIT repository ##
 
 If you have updated your Operator Bundle Artifacts as per the above instructions , make sure you validate your bundle once again using the following command. 
 
