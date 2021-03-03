@@ -167,7 +167,7 @@ If it produces any error or warning please ensure that you resolve all of them.
 
 Upload to Git repository your operator bundle artifacts in one of the below required formats based on the release type.
 
-* First Operator Bundle version Release(example 1.0.0):
+* First Operator Bundle version Release (example 1.0.0):
 
 ```
 .
