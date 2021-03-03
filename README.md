@@ -9,7 +9,7 @@
 
 This git repository contains a sample Node-Red Operator that helps you understand how to set up and prepare your Operator bundle directory structure for the **Operator Onboarding program**.
 
-This guide will help you learn the best practices to be followed for preparing your operator bundle artifacts which is required while onboarding an operator to **Ibm Cloud Catalog**.
+This guide will help you learn the best practices to be followed for preparing your operator bundle artifacts which is required while onboarding an operator to **IBM Cloud Catalog**.
 
 Before you start, please check out the *Pre-requisites* section.
 
@@ -18,7 +18,7 @@ Before you start, please check out the *Pre-requisites* section.
 Prior to continuing, kindly ensure that you have the below accompanying stages ready.
 
 1. You have an active IBM Cloud account.
-2. Your Operator must be created using [*latest supported*](https://docs.openshift.com/container-platform/4.5/operators/operator_sdk/osdk-getting-started.html) Operator-SDK version . This will let you perform smooth onboarding of operator to **Ibm Cloud Catalog**. 
+2. Your Operator must be created using [*latest supported*](https://docs.openshift.com/container-platform/4.5/operators/operator_sdk/osdk-getting-started.html) Operator-SDK version . This will let you perform smooth onboarding of operator to **IBM Cloud Catalog**. 
 
 Refer the sample [*node-red-operator*](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample) for folder structure and other details.
 
@@ -27,7 +27,7 @@ If the above  you can proceed to the following sections to get information on th
 
 ## 1. Upload Image(s) to IBM image registry
 
-To onboard your operator onto **Ibm Cloud Catalog**, your Application Image(s) and Operator Image have to be uploaded to the ibmcloud container registry.
+To onboard your operator onto **IBM Cloud Catalog**, your Application Image(s) and Operator Image have to be uploaded to the ibmcloud container registry.
 
 Please follow the steps in this [Quick start](https://cloud.ibm.com/registry/start) guide to get started.
 
