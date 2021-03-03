@@ -26,6 +26,7 @@ Refer the sample [*node-red-operator*](https://github.com/IBM-Cloud/isv-operator
 
 If the above  you can proceed to the following sections to get information on the best practices for onboarding your operator.
 
+****
 
 ## 1. Upload Image(s) to IBM image registry
 
