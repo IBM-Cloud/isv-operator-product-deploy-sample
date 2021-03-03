@@ -1,6 +1,6 @@
 ## Contents:
 1. [Upload Image(s) to IBM image registry](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample#1-upload-images-to-ibm-image-registry)
-2. [Provide registry READ permission and create API Key]()
+2. [Provide registry READ permission and create API Key](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample#2-provide-registry-read-permission-and-create-api-key)
 3. [Update Images for security and vulnerabilities issues](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample#3-update-images-for-security-and-vulnerabilities-issues)
 4. [Update the operator and bundle artifacts as per best practices guidelines](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample#4-update-the-operator-and-bundle-artifacts-as-per-best-practices-guidelines)
 5. [Push the Operator bundle to a public GIT Repository](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample#5push-the-operator-bundle-to-a-public-git-repository)
