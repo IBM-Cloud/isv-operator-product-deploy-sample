@@ -4,7 +4,7 @@
 3. [Update Images for security and vulnerabilities issues](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample#3-update-images-for-security-and-vulnerabilities-issues)
 4. [Update the operator and bundle artifacts as per best practices guidelines](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample#4-update-the-operator-and-bundle-artifacts-as-per-best-practices-guidelines)
 5. [Push the Operator bundle to a public GIT Repository](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample#5push-the-operator-bundle-to-a-public-git-repository)
-6. [Upgrade to new operator version.](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#6-upgrade-to-a-new-version)
+6. [Upgrade to new operator version](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#6-upgrade-to-a-new-version)
 
 ## Getting Started
 
