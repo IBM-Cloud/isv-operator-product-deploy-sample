@@ -45,8 +45,13 @@ Please follow the steps listed [here](https://cloud.ibm.com/docs/Registry?topic=
 
 ## 5. Review the Vulnerability Advisor report for the images
 
-It's required that you regularly build and push images to IBM Cloud Registry to ensure that the Images are free from all the vulnerabilities and security issues. 
-You can view the **Security Status** of the uploaded Images on the IBM Cloud Registry. Vulnerability Advisor inspects your images to detect common deficiencies in certain security settings. [*Learn more*](https://cloud.ibm.com/docs/Registry?topic=va-va_index#app_configurations).
+The images used by your operator should be free from all the vulnerabilities and security issues. 
+
+You can view the **Security Status** of the uploaded Images on the IBM Cloud Registry. 
+
+Vulnerability Advisor inspects your images to detect common deficiencies in certain security settings. [*Learn more*](https://cloud.ibm.com/docs/Registry?topic=va-va_index#app_configurations).
+
+If the security status of your images show any issues, complete the corrective action for each issue shown in the report, rebuild the image and push it to the IBM Cloud container registry.
 
 
 ## 6. Update the operator and bundle artifacts as per best practices guidelines 
