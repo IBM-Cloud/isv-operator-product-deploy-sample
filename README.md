@@ -182,7 +182,7 @@ Upload to Git repository your operator bundle artifacts in one of the below requ
 ├── bundle.Dockerfile
 ```
 
-* Subsequent Operator Bundle version Release (example 2.0.0):
+* Subsequent Operator Bundle version upgrades (example 2.0.0):
 
 ```
 ├── 1.0.0
