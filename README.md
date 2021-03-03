@@ -6,6 +6,7 @@
 5. [Push the Operator bundle to a public GIT Repository](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample#5push-the-operator-bundle-to-a-public-git-repository)
 6. [Upgrade to new operator version](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/README.md#6-upgrade-to-a-new-version)
 
+****
 ## Getting Started
 
 This git repository contains a sample Node-Red Operator that helps you understand how to set up and prepare your Operator bundle directory structure for the **Operator Onboarding program**.
