@@ -165,7 +165,9 @@ operator-sdk bundle validate ./bundle
 
 If it produces any error or warning please ensure that you resolve all of them.
 
-Upload your tested Bundle artifacts in the below format to a GIT Repository and ensure its public.
+Upload to Git repository your operator bundle artifacts in one of the below required formats based on the release type.
+
+* First Operator Bundle version Release(example 1.0.0):
 
 ```
 .
@@ -180,7 +182,26 @@ Upload your tested Bundle artifacts in the below format to a GIT Repository and 
 ├── bundle.Dockerfile
 ```
 
-When adding the Operator version to IBM Cloud Catalog, you would reference the CSV file from the GIT repository.
+* Subsequent Operator Bundle version Release (example 2.0.0):
+
+```
+├── 1.0.0
+│   ├── manifests
+│   │   ├── nodered.com_nodereds_crd.yaml
+│   │   └── node-red-operator.v1.0.0.clusterserviceversion.yaml
+│   ├── metadata
+│       └── annotations.yaml  
+├── 2.0.0
+│   ├── manifests
+│   │   ├── nodered.com_nodereds_crd.yaml
+│   │   └── node-red-operator.v2.0.0.clusterserviceversion.yaml
+│   ├── metadata
+│       └── annotations.yaml  
+├── bundle-1.0.0.Dockerfile
+├── bundle-2.0.0.Dockerfile
+```
+
+**NOTE:** When adding the Operator version to IBM Cloud Catalog, you would reference the CSV file from the GIT repository.
 
 ****
 ## 8. Upgrade to a new version ##
