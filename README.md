@@ -34,14 +34,22 @@ If the above  you can proceed to the following sections to get information on th
 
 To onboard your operator onto **IBM Cloud Catalog**, your Application Image(s) and Operator Image have to be uploaded to the ibmcloud container registry.
 
+**NOTE**: It is required that the Operator Image is uploaded to a container Registry Namespace for which a **READ** API key can be created. Please note that this requirement is ONLY for Operator Image.
+
 Please follow the steps in this [Quick start](https://cloud.ibm.com/registry/start) guide to get started.
+
 
 ## 4. Provide registry READ permission and create API Key
 
-For operator onboarding we will require a provider to set an **IAM serviceID** with _Container Registry_ access with **READ** permission for a specific namespace, and create an API key for the same.
+For operator onboarding we will require a provider to set an **IAM serviceID** with _Container Registry_ access with **READ** permission for a namespace that contains the **Operator Image**, and create an API key for the same. 
 
 Please follow the steps listed [here](https://cloud.ibm.com/docs/Registry?topic=Registry-iam).
 
+**Quick Links**:
+* [Getting Started with Registry](https://cloud.ibm.com/docs/Registry?topic=Registry-getting-started)
+* [Create serviceid](https://cloud.ibm.com/docs/account?topic=account-serviceids#serviceids)
+* [Give access to service id](https://cloud.ibm.com/docs/account?topic=account-assign-access-resources)
+* [Create API keys](https://cloud.ibm.com/docs/account?topic=account-serviceidapikeys#create_service_key)
 
 ## 5. Review the Vulnerability Advisor report for the images
 
@@ -185,23 +193,32 @@ Upload to Git repository your operator bundle artifacts in one of the below requ
 * Subsequent Operator Bundle version upgrades (example 2.0.0):
 
 ```
+bundle
 ├── 1.0.0
-│   ├── manifests
-│   │   ├── nodered.com_nodereds_crd.yaml
-│   │   └── node-red-operator.v1.0.0.clusterserviceversion.yaml
-│   ├── metadata
-│       └── annotations.yaml  
+│   ├── manifests
+│   │   ├── nodered.com_noderedbackups_crd.yaml
+│   │   ├── nodered.com_noderedrestores_crd.yaml
+│   │   ├── nodered.com_nodereds_crd.yaml
+│   │   └── node-red-operator.v1.0.0.clusterserviceversion.yaml
+│   └── metadata
+│       └── annotations.yaml
 ├── 2.0.0
-│   ├── manifests
-│   │   ├── nodered.com_nodereds_crd.yaml
-│   │   └── node-red-operator.v2.0.0.clusterserviceversion.yaml
-│   ├── metadata
-│       └── annotations.yaml  
+│   ├── manifests
+│   │   ├── nodered.com_noderedbackups_crd.yaml
+│   │   ├── nodered.com_noderedrestores_crd.yaml
+│   │   ├── nodered.com_nodereds_crd.yaml
+│   │   └── node-red-operator.v2.0.0.clusterserviceversion.yaml
+│   └── metadata
+│       └── annotations.yaml
 ├── bundle-1.0.0.Dockerfile
-├── bundle-2.0.0.Dockerfile
+└── bundle-2.0.0.Dockerfile
+
 ```
 
-**NOTE:** When adding the Operator version to IBM Cloud Catalog, you would reference the CSV file from the GIT repository.
+**NOTE:** While onboarding your operator to IBM Cloud Catalog , you would need to provide the URL of the ClusterServiceVersion(CSV) file residing in the git repository.
+
+_Example CSV URL for Node Red Operator Release Version 1.0.0 would be_: https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/manifests/node-red-operator.v1.0.0.clusterserviceversion.yaml 
+
 
 ****
 ## 8. Upgrade to a new version ##
