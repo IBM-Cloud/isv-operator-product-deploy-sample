@@ -6,7 +6,8 @@
 5. [Review the Vulnerability Advisor report for the images](#5-review-the-vulnerability-advisor-report-for-the-images)
 6. [Update the operator and bundle artifacts as per best practices guidelines](#6-update-the-operator-and-bundle-artifacts-as-per-best-practices-guidelines)
 7. [Push the operator bundle to a GIT repository](#7-push-the-operator-bundle-to-a-git-repository)
-8. [Upgrade to new operator version](#8-upgrade-to-a-new-version)
+8. Onboard to IBM Cloud Catalog
+9. [Upgrade to new operator version](#9-upgrade-to-a-new-version)
 
 ****
 ## 1. Overview
@@ -220,8 +221,10 @@ bundle
 _Example CSV URL for Node Red Operator Release Version 1.0.0 would be_: https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/manifests/node-red-operator.v1.0.0.clusterserviceversion.yaml 
 
 
+## 8. Onboard to IBM Cloud Catalog and validate
+
 ****
-## 8. Upgrade to a new version ##
+## 9. Upgrade to a new version ##
 
 A new version of an operator can be released in any of the following scenarios:
 a) Update the Product version used in the operator
