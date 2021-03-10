@@ -38,7 +38,7 @@ Please follow the steps in this [Quick start](https://cloud.ibm.com/registry/sta
 
 ## 4. Provide registry READ permission and create API Key
 
-For operator onboarding we will require a provider to set an **IAM serviceID** with Registry **READ** permission for a specific namespace, and create an API key for the same.
+For operator onboarding we will require a provider to set an **IAM serviceID** with _Container Registry_ access with **READ** permission for a specific namespace, and create an API key for the same.
 
 Please follow the steps listed [here](https://cloud.ibm.com/docs/Registry?topic=Registry-iam).
 
