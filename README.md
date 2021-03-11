@@ -12,7 +12,7 @@
 ****
 ## 1. Overview
 
-This git repository contains a sample Node-Red Operator that helps you understand how to prepare your Operator and Operator bundle directory structure to be [Onboarded to IBM Cloud](https://cloud.ibm.com/docs/third-party?topic=third-party-operator-onboard-tutorial)
+This git repository contains a sample Node-Red Red Hat Certified Operator that helps you understand how to prepare your Operator and Operator bundle directory structure to be [Onboarded to IBM Cloud](https://cloud.ibm.com/docs/third-party?topic=third-party-operator-onboard-tutorial)
 
 This guide will help you learn the best practices to be followed for preparing your operator bundle artifacts which is required while onboarding an operator to **IBM Cloud Catalog**.
 
@@ -33,9 +33,15 @@ If the above  you can proceed to the following sections to get information on th
 
 ## 3. Upload images to IBM Cloud Container Registry
 
-To onboard your operator onto **IBM Cloud Catalog**, your Application Image(s) and Operator Image have to be uploaded to the ibmcloud container registry.
+A certified Operator would have followig images:
 
-**NOTE**: It is required that the Operator Image is uploaded to a container Registry Namespace for which a **READ** API key can be created. Please note that this requirement is ONLY for Operator Image.
+* Operator Image
+* Application Container Image(s)
+* Operator Bundle Image
+
+To onboard your operator onto **IBM Cloud Catalog**, your **Application Image(s)** and **Operator Image** have to be uploaded to the ibmcloud container registry.
+
+**NOTE**: It is required that the Operator Image is uploaded to a container Registry Namespace for which a **READ** API key can be created and shared during Operator Onboarding process. Please note that this requirement is ONLY for Operator Image.
 
 Please follow the steps in this [Quick start](https://cloud.ibm.com/registry/start) guide to get started.
 
