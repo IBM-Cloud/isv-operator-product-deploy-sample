@@ -10,34 +10,25 @@
 9. [Upgrade to new operator version](#9-upgrade-to-a-new-version)
 
 ****
-## 1. Overview
+## Overview
 
-This git repository contains a sample Node-Red Red Hat Certified Operator that helps you understand how to prepare your Operator and Operator bundle directory structure to be [Onboarded to IBM Cloud](https://cloud.ibm.com/docs/third-party?topic=third-party-operator-onboard-tutorial)
+This repository contains a sample Node-Red Red Hat certified Operator that helps you understand how to prepare your Operator and bundle directory structure for onboarding to IBM Cloud. 
 
-This guide will help you learn the best practices to be followed for preparing your operator bundle artifacts which is required while onboarding an operator to **IBM Cloud Catalog**.
+## Prerequisites
 
-Before you start, please check out the *Pre-requisites* section.
+ Make sure that you complete the following prerequisites before you begin:
 
-## 2. Pre-requisites
-
-Prior to continuing, kindly ensure that you have the below accompanying stages ready.
-
-1. You have an active IBM Cloud account.
-2. Your Operator must be created using [*latest supported*](https://docs.openshift.com/container-platform/4.5/operators/operator_sdk/osdk-getting-started.html) Operator-SDK version . This will let you perform smooth onboarding of operator to **IBM Cloud Catalog**. 
-
-Refer the sample [*node-red-operator*](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample) for folder structure and other details.
-
-If the above  you can proceed to the following sections to get information on the best practices for onboarding your operator.
-
-****
+1. Verify that you're using a Pay-As-You-Go or Subscription account. See [Viewing your account type](https://test.cloud.ibm.com/docs/account?topic=account-account_settings#view-acct-type) for more details.
+2. Use the [latest supported Operator-SDK version](https://docs.openshift.com/container-platform/4.5/operators/operator_sdk/osdk-getting-started.html) to create your Operator. 
+3. See the [sample node-red-operator](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample) for folder structure and other details.
 
 ## 3. Upload images to IBM Cloud Container Registry
 
-A certified Operator would have followig images:
+A certified Operator includes the followig images:
 
-* Operator Image
-* Application Container Image(s)
-* Operator Bundle Image
+* Operator image
+* Application container images
+* Operator bundle image
 
 To onboard your operator onto **IBM Cloud Catalog**, your **Application Image(s)** and **Operator Image** have to be uploaded to the ibmcloud container registry.
 
