@@ -9,6 +9,7 @@
 8. [Onboard the Operator to IBM Cloud](#onboard-the-operator-to-ibm-cloud)
 9. [Upgrade to a new Operator version](#upgrade-to-a-new-version)
 
+
 ****
 ## Overview
 
