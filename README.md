@@ -6,7 +6,7 @@
 5. [Review the Vulnerability Advisor report for the images](#review-the-vulnerability-advisor-report-for-the-images)
 6. [Update the Operator and bundle artifacts](#update-the-operator-and-bundle-artifacts-as-per-best-practices-guidelines)
 7. [Push the Operator bundle to a GIT repository](#push-the-operator-bundle-to-a-git-repository)
-8. Onboard the Operator to IBM Cloud
+8. [Onboard the Operator to IBM Cloud](#onboard-the-operator-to-ibm-cloud)
 9. [Upgrade to a new Operator version](#upgrade-to-a-new-version)
 
 ****
