@@ -1,75 +1,49 @@
 ## Contents:
-1. [Overview](#1-overview)
-2. [Pre-requisites](#2-pre-requisites)
-3. [Upload images to IBM Cloud Container Registry](#3-upload-images-to-ibm-cloud-container-registry)
-4. [Provide registry READ permission and create API Key](#4-provide-registry-read-permission-and-create-api-key)
-5. [Review the Vulnerability Advisor report for the images](#5-review-the-vulnerability-advisor-report-for-the-images)
-6. [Update the operator and bundle artifacts as per best practices guidelines](#6-update-the-operator-and-bundle-artifacts-as-per-best-practices-guidelines)
-7. [Push the operator bundle to a GIT repository](#7-push-the-operator-bundle-to-a-git-repository)
-8. Onboard to IBM Cloud Catalog
-9. [Upgrade to new operator version](#9-upgrade-to-a-new-version)
+1. [Overview](#overview)
+2. [Prerequisites](#prerequisites)
+3. [Upload images to IBM Cloud Container Registry](#upload-images-to-ibm-cloud-container-registry)
+4. [Provide registry READ permission and create API Key](#provide-registry-read-permission-and-create-api-key)
+5. [Review the Vulnerability Advisor report for the images](#review-the-vulnerability-advisor-report-for-the-images)
+6. [Update the Operator and bundle artifacts](#update-the-operator-and-bundle-artifacts-as-per-best-practices-guidelines)
+7. [Push the Operator bundle to a GIT repository](#push-the-operator-bundle-to-a-git-repository)
+8. Onboard the Operator to IBM Cloud
+9. [Upgrade to a new Operator version](#upgrade-to-a-new-version)
 
 ****
-## 1. Overview
+## Overview
 
-This git repository contains a sample Node-Red Red Hat Certified Operator that helps you understand how to prepare your Operator and Operator bundle directory structure to be [Onboarded to IBM Cloud](https://cloud.ibm.com/docs/third-party?topic=third-party-operator-onboard-tutorial)
+This repository contains a sample Node-Red Red Hat certified Operator that helps you understand how to prepare your Operator and bundle directory structure for onboarding to IBM Cloud. 
 
-This guide will help you learn the best practices to be followed for preparing your operator bundle artifacts which is required while onboarding an operator to **IBM Cloud Catalog**.
+## Prerequisites
 
-Before you start, please check out the *Pre-requisites* section.
+ Make sure that you complete the following prerequisites before you begin:
 
-## 2. Pre-requisites
+1. Verify that you're using a Pay-As-You-Go or Subscription account. See [Viewing your account type](https://test.cloud.ibm.com/docs/account?topic=account-account_settings#view-acct-type) for more details.
+2. Use the [latest supported Operator-SDK version](https://docs.openshift.com/container-platform/4.5/operators/operator_sdk/osdk-getting-started.html) to create your Operator. 
 
-Prior to continuing, kindly ensure that you have the below accompanying stages ready.
+## Upload images to IBM Cloud Container Registry
 
-1. You have an active IBM Cloud account.
-2. Your Operator must be created using [*latest supported*](https://docs.openshift.com/container-platform/4.5/operators/operator_sdk/osdk-getting-started.html) Operator-SDK version . This will let you perform smooth onboarding of operator to **IBM Cloud Catalog**. 
+A certified Operator includes the following images:
 
-Refer the sample [*node-red-operator*](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample) for folder structure and other details.
+* Operator image
+* Application container images
+* Operator bundle image
 
-If the above  you can proceed to the following sections to get information on the best practices for onboarding your operator.
+To onboard your Operator to IBM Cloud, you upload your application images and Operator image to IBM Cloud Container Registry.
 
-****
+**Note**: It is required that the Operator image is uploaded to a Container Registry namespace for which a read API key can be created and shared during the Operator onboarding process. This requirement is only for the Operator image.
 
-## 3. Upload images to IBM Cloud Container Registry
+For more information, see [Getting started with IBM Cloud Container Registry](https://cloud.ibm.com/docs/Registry?topic=Registry-getting-started).
 
-A certified Operator would have followig images:
+## Assign permissions and create an API Key
 
-* Operator Image
-* Application Container Image(s)
-* Operator Bundle Image
+Create an IAM service ID with read access to the Container Registry service for a namespace that contains the Operator image, and create an API key for the same. For more information, see [Manager access for Container Registry](https://cloud.ibm.com/docs/Registry?topic=Registry-iam).  
 
-To onboard your operator onto **IBM Cloud Catalog**, your **Application Image(s)** and **Operator Image** have to be uploaded to the ibmcloud container registry.
+## Review the Vulnerability Advisor report for the images
 
-**NOTE**: It is required that the Operator Image is uploaded to a container Registry Namespace for which a **READ** API key can be created and shared during Operator Onboarding process. Please note that this requirement is ONLY for Operator Image.
+The images used by your Operator must be free from all vulnerabilities and security issues. When you upload your images, the vulnerability scans run automatically. You can view the scan results of the uploaded Images on the IBM Cloud Registry. For more information, see [Managing image security with Vulnerability Advisor](https://cloud.ibm.com/docs/Registry?topic=va-va_index#app_configurations).
 
-Please follow the steps in this [Quick start](https://cloud.ibm.com/registry/start) guide to get started.
-
-
-## 4. Provide registry READ permission and create API Key
-
-For operator onboarding we will require a provider to set an **IAM serviceID** with _Container Registry_ access with **READ** permission for a namespace that contains the **Operator Image**, and create an API key for the same. 
-
-Please follow the steps listed [here](https://cloud.ibm.com/docs/Registry?topic=Registry-iam).
-
-**Quick Links**:
-* [Getting Started with Registry](https://cloud.ibm.com/docs/Registry?topic=Registry-getting-started)
-* [Create serviceid](https://cloud.ibm.com/docs/account?topic=account-serviceids#serviceids)
-* [Give access to service id](https://cloud.ibm.com/docs/account?topic=account-assign-access-resources)
-* [Create API keys](https://cloud.ibm.com/docs/account?topic=account-serviceidapikeys#create_service_key)
-
-## 5. Review the Vulnerability Advisor report for the images
-
-The images used by your operator should be free from all the vulnerabilities and security issues. 
-
-You can view the **Security Status** of the uploaded Images on the IBM Cloud Registry. 
-
-Vulnerability Advisor inspects your images to detect common deficiencies in certain security settings. [*Learn more*](https://cloud.ibm.com/docs/Registry?topic=va-va_index#app_configurations).
-
-If the security status of your images show any issues, complete the corrective action for each issue shown in the report, rebuild the image and push it to the IBM Cloud container registry.
-
-
-## 6. Update the operator and bundle artifacts as per best practices guidelines 
+## Update the Operator and bundle artifacts
 
 Before you begin with the best practices, make sure that you have generated your operator bundle using [*latest supported*](https://docs.openshift.com/container-platform/4.5/operators/operator_sdk/osdk-getting-started.html) operator sdk.
 
@@ -170,7 +144,7 @@ Make sure you add the package name properly.
 See [*node-red-operator*](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/1.0.0/metadata/annotations.yaml) example for more details.
 
 
-## 7. Push the operator bundle to a GIT repository ##
+## Push the operator bundle to a GIT repository
 
 If you have updated your Operator Bundle Artifacts as per the above instructions , make sure you validate your bundle once again using the following command. 
 
@@ -227,10 +201,11 @@ bundle
 _Example CSV URL for Node Red Operator Release Version 1.0.0 would be_: https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/manifests/node-red-operator.v1.0.0.clusterserviceversion.yaml 
 
 
-## 8. Onboard to IBM Cloud Catalog and validate
+## Onboard the Operator to IBM Cloud
 
-****
-## 9. Upgrade to a new version ##
+See [Validating your software](https://test.cloud.ibm.com/docs/third-party?topic=third-party-sw-validate) for more information. 
+
+## Upgrade to a new version
 
 A new version of an operator can be released in any of the following scenarios:
 a) Update the Product version used in the operator
@@ -312,7 +287,7 @@ To ensure that the upgraded contents are there inside  `clusterserviceversion.ya
 
 
 
-**c) Validate the operator bundle**
+**c) Validate the Operator bundle**
 
 Once you have updated your operator bundle, validate your bundle using the following command. 
 
