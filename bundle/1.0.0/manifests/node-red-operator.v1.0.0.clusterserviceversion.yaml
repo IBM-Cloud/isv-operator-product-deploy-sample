@@ -159,7 +159,7 @@ spec:
                   value: us.icr.io/node-red/node-red-backup-restore:v0.0.1
                 - name: RELATED_IMAGE_NODERED_RESTORE
                   value: us.icr.io/node-red/node-red-backup-restore:v0.0.1
-                image: quay.io/dataexplorer/secured-node-red-operator:1-feb8
+                image: icr.io/node-red-operator/node-red-operator-entitled:v1.0.0
                 imagePullPolicy: Always
                 name: node-red-operator
                 resources: {}
