@@ -204,7 +204,7 @@ _Example CSV URL for Node Red Operator Release Version 1.0.0 would be_: https://
 
 ## Onboard the Operator to IBM Cloud
 
-See [Validating your software](https://test.cloud.ibm.com/docs/third-party?topic=third-party-sw-validate) for more information. 
+The onboarding process includes importing your CSV file that you created in the previous section to a private catalog, configuring the deployment variables, and  validating that the Operator can be installed on a target cluster. See [Onboarding an Operator](https://cloud.ibm.com/docs/third-party?topic=third-party-operator-onboard) for more information. 
 
 ## Upgrade to a new version
 
