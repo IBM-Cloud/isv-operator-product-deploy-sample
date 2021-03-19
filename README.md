@@ -132,7 +132,7 @@ As a best practice you may want to add the default channel and package name by a
 
 `LABEL operators.operatorframework.io.bundle.package.v1=node-red-operator-certified`
 
-For more details, refer the example   [*node-red-operator*](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/bundle-v1.0.0.Dockerfile) 
+For more details, refer the example   [*node-red-operator*](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/bundle-1.0.0.Dockerfile) 
 
 **d) Check annotations.yaml**
 
@@ -199,7 +199,7 @@ bundle
 
 **NOTE:** While onboarding your operator to IBM Cloud Catalog , you would need to provide the URL of the ClusterServiceVersion(CSV) file residing in the git repository.
 
-_Example CSV URL for Node Red Operator Release Version 1.0.0 would be_: https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/manifests/node-red-operator.v1.0.0.clusterserviceversion.yaml 
+_Example CSV URL for Node Red Operator Release Version 1.0.0 would be_: https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/1.0.0/manifests/node-red-operator.v1.0.0.clusterserviceversion.yaml 
 
 
 ## Onboard the Operator to IBM Cloud
