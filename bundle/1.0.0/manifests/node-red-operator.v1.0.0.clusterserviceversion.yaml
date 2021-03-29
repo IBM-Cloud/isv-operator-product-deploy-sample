@@ -62,12 +62,12 @@ metadata:
     capabilities: Full Lifecycle
     categories: Developer Tools
     certified: "false"
-    containerImage: registry.connect.redhat.com/ibm-edge/node-red:v0.0.3
+    containerImage: us.icr.io/node-red/node-red:1.2.8-1
     createdAt: "2021-02-03T12:00:00Z"
     description: Node-RED is a programming tool for wiring together hardware devices, APIs and online services in new and interesting ways.
     repository: https://github.com/rhm-samples/node-red-operator/
     support: Refer Readme- https://github.com/rhm-samples/node-red-operator/issues.
-  name: node-red-operator.v2.0.0
+  name: node-red-operator.v1.0.0
   namespace: placeholder
 spec:
   apiservicedefinitions: {}
@@ -292,8 +292,7 @@ spec:
   maturity: alpha
   provider:
     name: IBM-Edge
-  version: 2.0.0
-  replaces: node-red-operator.v1.0.0
+  version: 1.0.0
   description: |
     Node-RED is a flow-based programming tool, originally developed by IBM's Emerging Technology Services team and now a part of the JS Foundation.
 
