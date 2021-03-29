@@ -15,6 +15,8 @@
 
 This repository contains a sample Node-Red Red Hat certified Operator that helps you understand how to prepare your Operator and bundle directory structure for onboarding to IBM Cloud. 
 
+**NOTE**: This example illustrates the Node-Red operator upgrade scenario where we are upgrading Node-Red operator from its base version v1.0.0 to v2.0.0.  
+
 ## Prerequisites
 
  Make sure that you complete the following prerequisites before you begin:
@@ -75,7 +77,7 @@ Once you have validated your operator bundle, you're good to start with the Oper
 
 By default the operator-sdk creates the latest version of CustomResourceDefinition(CRD) `v1`. The older versions of OpenShift (4.5 and earlier) only support `v1beta1`. For backward support its recommended to change the version of CRD to `v1beta1`. 
 
-See the [example CRD](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/1.0.0/manifests/nodered.com_nodereds_crd.yaml) from Node Red Operator
+See the [example CRD](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/2.0.0/manifests/nodered.com_nodereds_crd.yaml) from Node Red Operator
 
 **b) Check CSV fields**
 
@@ -113,7 +115,7 @@ You need to add personalized data to the following required fields of the CSV.
 
 **NOTE**: Ensure that the CSV references the Application Image(s) and Operator Image from IBM Cloud Registry.
 
-Check the CSV for [*node-red-operator*](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/1.0.0/manifests/node-red-operator.v1.0.0.clusterserviceversion.yaml) for more details.
+Check the CSV for [*node-red-operator*](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/2.0.0/manifests/node-red-operator.v2.0.0.clusterserviceversion.yaml) for more details.
 
 
 **c) Check bundle.Dockerfile**
@@ -132,7 +134,7 @@ As a best practice you may want to add the default channel and package name by a
 
 `LABEL operators.operatorframework.io.bundle.package.v1=node-red-operator-certified`
 
-For more details, refer the example   [*node-red-operator*](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/bundle-1.0.0.Dockerfile) 
+For more details, refer the example   [*node-red-operator*](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/bundle-2.0.0.Dockerfile) 
 
 **d) Check annotations.yaml**
 
@@ -142,7 +144,7 @@ Make sure you add the package name properly.
 
 `operators.operatorframework.io.bundle.package.v1: node-red-operator-certified`
 
-See [*node-red-operator*](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/1.0.0/metadata/annotations.yaml) example for more details.
+See [*node-red-operator*](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/2.0.0/metadata/annotations.yaml) example for more details.
 
 
 ## Push the operator bundle to a GIT repository
@@ -199,7 +201,7 @@ bundle
 
 **NOTE:** While onboarding your operator to IBM Cloud Catalog , you would need to provide the URL of the ClusterServiceVersion(CSV) file residing in the git repository.
 
-_Example CSV URL for Node Red Operator Release Version 1.0.0 would be_: https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/1.0.0/manifests/node-red-operator.v1.0.0.clusterserviceversion.yaml 
+_Example CSV URL for Node Red Operator Release Version 2.0.0 would be_: https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/2.0.0/manifests/node-red-operator.v2.0.0.clusterserviceversion.yaml 
 
 
 ## Onboard the Operator to IBM Cloud
