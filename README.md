@@ -21,7 +21,7 @@ This repository contains a sample Node-Red Red Hat certified Operator that helps
 
  Make sure that you complete the following prerequisites before you begin:
 
-1. Verify that you're using a Pay-As-You-Go or Subscription account. See [Viewing your account type](https://test.cloud.ibm.com/docs/account?topic=account-account_settings#view-acct-type) for more details.
+1. Verify that you're using a Pay-As-You-Go or Subscription account. See [Viewing your account type](https://cloud.ibm.com/docs/account?topic=account-account_settings#view-acct-type) for more details.
 2. Use the [latest supported Operator-SDK version](https://docs.openshift.com/container-platform/4.5/operators/operator_sdk/osdk-getting-started.html) to create your Operator. 
 
 ## Upload images to IBM Cloud Container Registry
@@ -71,13 +71,13 @@ Also , validate your operator bundle by executing the following command on the r
 operator-sdk bundle validate ./bundle
 ```
 
-Once you have validated your operator bundle, you're good to start with the Operator Bundle Artifact Check process.
+After you validate your operator bundle, you're ready to start the Operator Bundle Artifact Check process.
 
 **a) Check CRD version**
 
 By default the operator-sdk creates the latest version of CustomResourceDefinition(CRD) `v1`. The older versions of OpenShift (4.5 and earlier) only support `v1beta1`. For backward support its recommended to change the version of CRD to `v1beta1`. 
 
-See the [example CRD](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/2.0.0/manifests/nodered.com_nodereds_crd.yaml) from Node Red Operator
+See the [example CRD](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/2.0.0/manifests/nodered.com_nodereds_crd.yaml) from Node Red Operator.
 
 **b) Check CSV fields**
 
@@ -87,17 +87,17 @@ You need to add personalized data to the following required fields of the CSV.
 
 | field                              | sub-field                                                    | Description                                                  |
 | ---------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| metadata                           | name                                                         | This is the name of your CSV file. In general, the naming convention includes the name of the operator followed by the semantic version number, separated by a period (e.g. node-red-operator.v2.1.0). |
-| metadata                           | namespace                                                    | This defines the Namespace in which the operator will be installed. It should be set as ```placeholder``` |
-| annotations                        | alm-examples                                                 | This is an array containing CRD templates. The users of your Operator should be aware of mandatory and optional choices. You can upload the CRD templates containing a minimum set of configuration as an annotation in JSON format. |
+| metadata                           | name                                                         | The name of your CSV file. In general, the naming convention includes the name of the operator followed by the semantic version number, separated by a period (for example, node-red-operator.v2.1.0). |
+| metadata                           | namespace                                                    | The namespace in which the Operator is installed. It should be set as ```placeholder``` |
+| annotations                        | alm-examples                                                 | An array containing the CRD templates. The users of your Operator should be aware of mandatory and optional choices. You can upload the CRD templates containing a minimum set of configuration as an annotation in JSON format. |
 | annotations                        | capabilities:                                                | Based on the operator maturity model, the capability can be classified as Basic Install or Seamless Upgrades or Full Lifecycle or Deep Insights or Auto Pilot |
 | annotations                        | categories                                                   | A category is a comma separated string of applicable category names. |
-| annotations                        | description                                                  | This defines a short description of the operator                  |
-| annotations                        | createdAt                                                    | This indicates a rough (to the day) timestamp describing when the operator image was created |
-| annotations                        | support                                                      | This contains the  name of the supporting vendor (eg: ExampleCo) |
+| annotations                        | description                                                  | A short description of the Operator.                 |
+| annotations                        | createdAt                                                    | A rough estimate (to the day) describing when the Operator image was created. |
+| annotations                        | support                                                      | Contains the  name of the supporting vendor (for example, ExampleCo). |
 | annotations                        | certified                                                    | (deprecated) This string has no effect, but can be set to "true" or "false" |
-| annotations                        | repository                                                   | This is an optional URL of the operator's source code repository. If you don't want to specify , set it to NA. |
-| spec                               | version                                                      | The value you enter in this field will depict the current version of the operator. |
+| annotations                        | repository                                                   | An optional URL of the Operator's source code repository. If you don't want to specify , set it to NA. |
+| spec                               | version                                                      | The value you enter in this field indicates the current version of the operator. |
 | spec                               | replaces                                                     | This interprets as “the previous version to be replaced with a particular version". This field is very important for version upgrades to take place. |
 | spec                               | customresourcedefinitions.owned                              | List all the CRDs for your operator in this section.         |
 | spec                               | icon                                                         | This is typically a ```base64data``` encoded icon                              |
@@ -106,14 +106,14 @@ You need to add personalized data to the following required fields of the CSV.
 | spec                               | serviceAccountName                                           | The name of the service account to which the RBAC is assigned. Operator gets the required permissions for its deployments and execution from this serviceaccount. |
 | spec                               | clusterPermissions                                           | Define all the required cluster permissions for your operator's serviceAccount |
 | spec                               | Permissions                                                  | Define all the required namespace level permissions for your operator's serviceAccount |
-| spec                               | description                                                  | This  is mandatory field and shows the details about the Operator Description, its feature , how to use it, pre-requisites etc. A user of your operator will see this description and this is required. |
-| spec                               | maintainers                                                  | It is the comma-separated list of maintainers and their emails (e.g. 'name1:email1, name2:email2') |
-| spec                               | keywords                                                     | It contains comma-separated list of keywords for your operator |
-| spec                               | provider                                                     | It is the provider's name for the operator                   |
+| spec                               | description                                                  | A require field that shows the details about the Operator Description, its feature , how to use it, pre-requisites etc.  |
+| spec                               | maintainers                                                  | A comma-separated list of maintainers and their emails (e.g. 'name1:email1, name2:email2') |
+| spec                               | keywords                                                     | A comma-separated list of keywords for your Operator |
+| spec                               | provider                                                     | The provider's name for the Operator                   |
 
 
 
-**NOTE**: Ensure that the CSV references the Application Image(s) and Operator Image from IBM Cloud Registry.
+**NOTE**: Ensure that the CSV references the application images and Operator image from IBM Cloud Registry.
 
 Check the CSV for [*node-red-operator*](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/2.0.0/manifests/node-red-operator.v2.0.0.clusterserviceversion.yaml) for more details.
 
@@ -292,16 +292,16 @@ To ensure that the upgraded contents are there inside  `clusterserviceversion.ya
 
 **c) Validate the Operator bundle**
 
-Once you have updated your operator bundle, validate your bundle using the following command. 
+After you update your Operator bundle, validate your bundle by using the following command. 
 
 ```execute
 operator-sdk bundle validate ./2.0.0
 ```
-If it shows any error or warning, please ensure that you resolve all of them. 
+Be sure to resolve any error or warning that's reported.
 
 ****
 
-Back to [Onboarding Tutorial](https://test.cloud.ibm.com/docs/third-party?topic=third-party-operator-onboard-tutorial)
+
 
 ****
 
