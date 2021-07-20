@@ -146,6 +146,9 @@ Make sure you add the package name properly.
 
 See [*node-red-operator*](https://github.com/IBM-Cloud/isv-operator-product-deploy-sample/blob/main/bundle/2.0.0/metadata/annotations.yaml) example for more details.
 
+### Create your installation readme file
+
+Create a readme file that focuses on helping users get up and running with your software. The details of your readme file are published on the Readme tab of your product's details page in the IBM Cloud catalog. For more information, including a link to the readme file template that you use, see [Uploading your readme file](https://cloud.ibm.com/docs/third-party?topic=third-party-source-repo-setup#upload-readme). 
 
 ## Push the operator bundle to a GIT repository
 
